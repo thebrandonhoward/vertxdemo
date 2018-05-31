@@ -22,12 +22,14 @@ public class VerticleTest {
     }
 
     @After
-    public void tearDown(TestContext context) {
+    public void tearDown(TestContext context)
+    {
         vertx.close(context.asyncAssertSuccess());
     }
 
     @Test
-    public void testMyApplication(TestContext context) {
+    public void testMyApplication(TestContext context)
+    {
         final Async async = context.async();
 
         vertx.createHttpClient().getNow(8080, "localhost", "/",
