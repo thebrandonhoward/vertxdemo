@@ -10,7 +10,7 @@ public class Verticle extends AbstractVerticle {
 
         vertx.createHttpServer()
              .requestHandler(r -> { r.response().end("<h1>Hello from my first Vert.x 3 application</h1>"); })
-             .listen(8080, result -> { if (result.succeeded()) {
+             .listen(8081, result -> { if (result.succeeded()) {
                                              future.complete();
                                          }
                                          else {
