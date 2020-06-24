@@ -3,21 +3,19 @@ package com.innervuse;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 
-public class Verticle
-        extends AbstractVerticle
-{
+public class Verticle extends AbstractVerticle {
+
     @Override
-    public void start(Future<Void> fut)
-    {
+    public void start(Future<Void> future) {
+
         vertx.createHttpServer()
              .requestHandler(r -> { r.response().end("<h1>Hello from my first Vert.x 3 application</h1>"); })
-             .listen(8080, result -> { if (result.succeeded())
-                                         {
-                                             fut.complete();
+             .listen(8080, result -> { if (result.succeeded()) {
+                                             future.complete();
                                          }
-                                         else
-                                         {
-                                             fut.fail(result.cause());
-                                         }});
+                                         else {
+                                             future.fail(result.cause()); }});
+
     }
+
 }
